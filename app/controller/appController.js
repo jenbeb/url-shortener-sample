@@ -82,10 +82,10 @@ router.get("/:id", (req, res, next) => {
 
 /**
  * save the shortened url
- * @params shortUlrObj
+ * @params shortUrlObj
  * @params res
  */
-function saveShortUrl(shortUlrObj, res, req) {
+function saveShortUrl(shortUrlObj, res, req) {
     // Generate a random string to replace the url
     let randomStr = generateRandomString();
     // Check if the random string already exist in DB
@@ -94,9 +94,9 @@ function saveShortUrl(shortUlrObj, res, req) {
             console.log(err);
         } else if (url == null || isEmpty(url)) {
             console.log("url obj", url, randomStr);
-            shortUlrObj.urlCode = randomStr;
-            // Not a duplicate
-            shortUlrObj.save(err => {
+            shortUrlObj.urlCode = randomStr;
+            // no duplicates, save
+            shortUrlObj.save(err => {
                 if (err) {
                     res.status(400).json({ success: true, msg: err });
                 }
@@ -105,7 +105,7 @@ function saveShortUrl(shortUlrObj, res, req) {
         } else {
             // Generated random string already exist in the DB
             // Try once again
-            saveShortUrl(shortUlrObj, res, req);
+            saveShortUrl(shortUrlObj, res, req);
         }
     });
 }
