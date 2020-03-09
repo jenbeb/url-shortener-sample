@@ -29,9 +29,10 @@ $(function(){
 	  				.attr("class", "alert alert-danger");
 	  		}
 	  	}
+	    console.log(response);
+	  }).always(function(jqXHROrData, textStatus, jqXHROrErrorThrown) { 
 	  	// enable the button back
 	  	$urlForm.find("#submit-btn").prop('disabled', false);
-	    console.log(response);
-	  })
+	  });
 	}
 })
