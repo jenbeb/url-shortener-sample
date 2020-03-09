@@ -1,0 +1,26 @@
+{
+  "name": "url-shortener-sample",
+  "version": "1.0.0",
+  "description": "A sample for creating a url shortener with node.js and mongo db",
+  "main": "./app/server/app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.0.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./app/server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenbeb/url-shortener-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenbeb/url-shortener-sample/issues"
+  },
+  "homepage": "https://github.com/jenbeb/url-shortener-sample#readme"
+}
