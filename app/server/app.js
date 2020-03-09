@@ -22,9 +22,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // set mongo db connection string
 const dbURL = process.env.MONGODB_URL;
 
+var options = { 
+  server: { 
+    socketOptions: { 
+      keepAlive: 300000, connectTimeoutMS: 30000 
+    } 
+  }, 
+  replset: { 
+    socketOptions: { 
+      keepAlive: 300000, 
+      connectTimeoutMS : 30000 
+    } 
+  } 
+};
+
 // Connect to database
 mongoose
-  .connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(dbURL, options)
   .then(() => console.log("Database connected ...."))
 
   .catch(err => console.error(err));
