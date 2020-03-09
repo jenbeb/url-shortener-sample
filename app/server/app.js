@@ -1,7 +1,6 @@
 
-if(process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
-}
+// get config
+require('dotenv').config();
 
 // initialize const
 // get required modules
